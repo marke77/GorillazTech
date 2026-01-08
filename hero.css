@@ -1,0 +1,660 @@
+/* ==========================================
+   HERO SECTION - MOBILE FIRST DESIGN
+   Ultra-Modern with Particles & Animations
+   ========================================== */
+
+.hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    padding: 80px 0 40px;
+}
+
+/* ==========================================
+   ANIMATED BACKGROUND
+   ========================================== */
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Gradient Orbs */
+.gradient-orbs {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: orbFloat 20s ease-in-out infinite;
+}
+
+.orb-1 {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(135deg, #ffc107, #ff9500);
+    top: -5%;
+    right: -5%;
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #333, #212121);
+    bottom: 5%;
+    left: -5%;
+    animation-delay: -7s;
+}
+
+.orb-3 {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #ffc107, #ff6b35);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.25;
+    animation-delay: -14s;
+}
+
+@keyframes orbFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(20px, -20px) scale(1.05); }
+    50% { transform: translate(-15px, 15px) scale(0.95); }
+    75% { transform: translate(-20px, -15px) scale(1.02); }
+}
+
+/* Grid Lines */
+.grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(rgba(255, 193, 7, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 193, 7, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: gridMove 25s linear infinite;
+}
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(40px, 40px); }
+}
+
+/* Particles */
+.particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: #ffc107;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ==========================================
+   HERO CONTAINER
+   ========================================== */
+
+.hero-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1.25rem;
+}
+
+/* ==========================================
+   LOGO
+   ========================================== */
+
+.hero-logo-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-glow {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(255, 193, 7, 0.35) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { transform: scale(1); opacity: 0.35; }
+    50% { transform: scale(1.15); opacity: 0.5; }
+}
+
+.hero-logo {
+    width: 140px;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.5));
+    animation: logoFloat 4s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ==========================================
+   HERO CONTENT
+   ========================================== */
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+/* Badge */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: 50px;
+    color: #ffc107;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: badgePulse 2.5s ease-in-out infinite;
+}
+
+.hero-badge i {
+    font-size: 0.65rem;
+    animation: boltFlash 1.5s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.2); }
+    50% { box-shadow: 0 0 0 10px rgba(255, 193, 7, 0); }
+}
+
+@keyframes boltFlash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* Title */
+.hero-title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    margin: 0;
+}
+
+.title-line {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.title-highlight {
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffc107 0%, #ffdb4d 50%, #ff6b35 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    position: relative;
+    display: inline-block;
+}
+
+.title-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #ffc107, #ff6b35);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: underlineGrow 1s ease-out 0.5s forwards;
+}
+
+@keyframes underlineGrow {
+    to { transform: scaleX(1); }
+}
+
+/* Description */
+.hero-description {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 340px;
+    margin: 0;
+}
+
+.hero-description strong {
+    color: #ffc107;
+}
+
+/* ==========================================
+   BUTTONS WITH MICRO-INTERACTIONS
+   ========================================== */
+
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 280px;
+}
+
+.btn-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Primary Button */
+.btn-primary-hero {
+    background: linear-gradient(135deg, #ffc107 0%, #ffdb4d 100%);
+    color: #212121;
+    box-shadow: 0 4px 20px rgba(255, 193, 7, 0.35);
+}
+
+.btn-primary-hero:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(255, 193, 7, 0.5);
+}
+
+.btn-primary-hero:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.btn-primary-hero .btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.btn-primary-hero:hover .btn-icon {
+    transform: translateX(4px);
+}
+
+.btn-primary-hero .btn-icon i {
+    font-size: 0.65rem;
+}
+
+/* Shine Effect */
+.btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.btn-primary-hero:hover .btn-shine {
+    left: 100%;
+}
+
+/* Secondary Button */
+.btn-secondary-hero {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 193, 7, 0.4);
+}
+
+.btn-secondary-hero:hover {
+    background: rgba(255, 193, 7, 0.1);
+    border-color: #ffc107;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 193, 7, 0.15);
+}
+
+.btn-secondary-hero:active {
+    transform: translateY(-1px);
+}
+
+.btn-secondary-hero .btn-icon-left {
+    font-size: 1.1rem;
+    color: #25d366;
+    transition: transform 0.3s ease;
+}
+
+.btn-secondary-hero:hover .btn-icon-left {
+    transform: scale(1.15);
+}
+
+/* ==========================================
+   TRUST BADGES
+   ========================================== */
+
+.hero-trust {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.45);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.trust-item:hover {
+    color: #ffc107;
+    transform: translateY(-2px);
+}
+
+.trust-item i {
+    font-size: 0.7rem;
+    color: #ffc107;
+}
+
+/* ==========================================
+   SCROLL INDICATOR
+   ========================================== */
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: fadeInUp 1s ease-out 1.5s both;
+}
+
+.mouse {
+    width: 20px;
+    height: 32px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+.wheel {
+    width: 3px;
+    height: 6px;
+    background: #ffc107;
+    border-radius: 2px;
+    animation: scrollWheel 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollWheel {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(8px); opacity: 0; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* ==========================================
+   RESPONSIVE - TABLET (480px+)
+   ========================================== */
+
+@media (min-width: 480px) {
+    .hero-logo {
+        width: 160px;
+    }
+    
+    .logo-glow {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .title-line {
+        font-size: 1.8rem;
+    }
+    
+    .title-highlight {
+        font-size: 2.8rem;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+        max-width: 380px;
+    }
+    
+    .hero-buttons {
+        flex-direction: row;
+        max-width: none;
+        justify-content: center;
+    }
+    
+    .btn-hero {
+        width: auto;
+    }
+    
+    .orb-1 {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .orb-2 {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE - TABLET LANDSCAPE (768px+)
+   ========================================== */
+
+@media (min-width: 768px) {
+    .hero {
+        padding: 100px 0 60px;
+    }
+    
+    .hero-container {
+        gap: 2rem;
+    }
+    
+    .hero-logo {
+        width: 200px;
+    }
+    
+    .logo-glow {
+        width: 260px;
+        height: 260px;
+    }
+    
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: 10px 20px;
+    }
+    
+    .title-line {
+        font-size: 2.2rem;
+    }
+    
+    .title-highlight {
+        font-size: 3.2rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        max-width: 450px;
+    }
+    
+    .btn-hero {
+        padding: 16px 30px;
+        font-size: 0.95rem;
+    }
+    
+    .hero-trust {
+        gap: 1.5rem;
+    }
+    
+    .trust-item {
+        font-size: 0.75rem;
+    }
+    
+    .orb-1 {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .orb-2 {
+        width: 350px;
+        height: 350px;
+    }
+    
+    .orb-3 {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE - DESKTOP (1024px+)
+   ========================================== */
+
+@media (min-width: 1024px) {
+    .hero-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        max-width: 1100px;
+        padding: 0 2rem;
+    }
+    
+    .hero-logo-wrapper {
+        order: 2;
+    }
+    
+    .hero-logo {
+        width: 260px;
+    }
+    
+    .logo-glow {
+        width: 320px;
+        height: 320px;
+    }
+    
+    .hero-content {
+        align-items: flex-start;
+        order: 1;
+        max-width: 520px;
+    }
+    
+    .title-line {
+        font-size: 2.5rem;
+    }
+    
+    .title-highlight {
+        font-size: 3.8rem;
+    }
+    
+    .hero-description {
+        font-size: 1.05rem;
+        max-width: 450px;
+    }
+    
+    .hero-buttons {
+        justify-content: flex-start;
+    }
+    
+    .hero-trust {
+        justify-content: flex-start;
+    }
+    
+    .scroll-indicator {
+        bottom: 30px;
+    }
+}
+
+/* ==========================================
+   RESPONSIVE - LARGE DESKTOP (1200px+)
+   ========================================== */
+
+@media (min-width: 1200px) {
+    .hero-logo {
+        width: 300px;
+    }
+    
+    .logo-glow {
+        width: 380px;
+        height: 380px;
+    }
+    
+    .title-line {
+        font-size: 2.8rem;
+    }
+    
+    .title-highlight {
+        font-size: 4.2rem;
+    }
+}

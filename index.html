@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GorillazTech - Especialistas em manutenção de celulares e venda de acessórios. Assistência técnica profissional com garantia. Atendimento rápido e preços justos.">
+    <meta name="keywords" content="GorillazTech, manutenção celular, conserto smartphone, assistência técnica celular, acessórios celular, capinhas, películas, carregadores">
+    <meta name="author" content="GorillazTech">
+    <meta property="og:title" content="GorillazTech - Manutenção de Celulares e Acessórios">
+    <meta property="og:description" content="Especialistas em conserto de smartphones. Tela quebrada? Bateria viciada? Nós resolvemos! Visite nossa loja.">
+    <meta property="og:image" content="https://gorillaztech.com/assets/images/logo/logotipo.png">
+    <meta property="og:url" content="https://gorillaztech.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <title>GorillazTech - Manutenção de Celulares e Acessórios | Assistência Técnica Especializada</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo/logotipo.png">
+    <link rel="shortcut icon" type="image/png" href="assets/images/logo/logotipo.png">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="hero.css">
+    <!-- Leaflet CSS para mapa personalizado -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Schema Markup para SEO Local -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Store",
+        "name": "GorillazTech",
+        "description": "Loja especializada em manutenção de celulares e venda de acessórios",
+        "image": "https://gorillaztech.com/assets/images/logo/logotipo.png",
+        "telephone": "+55 11 9999-9999",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Soares Meireles, 176 - Pilares / Rua Carlos Gonçalves Penna, 192 - Engenho da Rainha",
+            "addressLocality": "Rio de Janeiro",
+            "addressRegion": "RJ",
+            "postalCode": "01234-567",
+            "addressCountry": "BR"
+        },
+        "openingHours": "Mo-Fr 09:00-18:00, Sa 09:00-14:00",
+        "priceRange": "$$"
+    }
+    </script>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-container">
+                    <div class="logo">
+                        <img src="assets/images/logo/logotipo.png" alt="GorillazTech Logo" class="logo-img">
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="#home" class="nav-link">Início</a></li>
+                        <li><a href="#services" class="nav-link">Serviços</a></li>
+                        <li><a href="#products" class="nav-link">Acessórios</a></li>
+                        <li><a href="#about" class="nav-link">Sobre</a></li>
+                        <li><a href="#contact" class="nav-link">Contato</a></li>
+                    </ul>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Animated Background -->
+        <div class="hero-bg">
+            <div class="particles" id="particles"></div>
+            <div class="gradient-orbs">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+            </div>
+            <div class="grid-lines"></div>
+        </div>
+
+        <div class="container hero-container">
+            <!-- Logo Central -->
+            <div class="hero-logo-wrapper" data-aos="zoom-in">
+                <div class="logo-glow"></div>
+                <img src="assets/images/logo/logotipo.png" alt="GorillazTech Logo" class="hero-logo">
+            </div>
+
+            <!-- Content -->
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-badge">
+                    <i class="fas fa-bolt"></i>
+                    <span>Assistência Técnica Especializada</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="title-line">Tecnologia que</span>
+                    <span class="title-highlight">Transforma</span>
+                </h1>
+                
+                <p class="hero-description">
+                    Conserto rápido de celulares, manutenção de computadores e os melhores acessórios. 
+                    <strong>Garantia em todos os serviços.</strong>
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="hero-buttons">
+                    <a href="#services" class="btn-hero btn-primary-hero">
+                        <span class="btn-text">Ver Serviços</span>
+                        <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                        <div class="btn-shine"></div>
+                    </a>
+                    <button class="btn-hero btn-secondary-hero" id="heroWhatsApp">
+                        <span class="btn-icon-left"><i class="fab fa-whatsapp"></i></span>
+                        <span class="btn-text">Fale Conosco</span>
+                    </button>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Garantia 30 dias</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Atendimento Rápido</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-star"></i>
+                        <span>+10mil clientes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Role para explorar</span>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <p class="section-subtitle">Soluções completas para seu smartphone</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Troca de Tela</h3>
+                    <p>Tela quebrada ou com touch defeituoso? Realizamos a troca com peças originais</p>
+                    <span class="service-price">A partir de R$ 99,00</span>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <h3>Troca de Bateria</h3>
+                    <p>Bateria viciada? Substituímos por baterias de alta capacidade</p>
+                    <span class="service-price">A partir de R$ 79,00</span>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Reparo de Câmera</h3>
+                    <p>Problemas com foco, manchas ou câmera não funciona? Nós resolvemos!</p>
+                    <span class="service-price">A partir de R$ 89,00</span>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                    <h3>Som e Microfone</h3>
+                    <p>Conserto de alto-falantes, microfone e entrada de fone</p>
+                    <span class="service-price">A partir de R$ 69,00</span>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>Celular Molhou</h3>
+                    <p>Recuperação de aparelhos que tiveram contato com líquidos</p>
+                    <span class="service-price">Consulte</span>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Reparo em Placa</h3>
+                    <p>Conserto avançado de placas e componentes eletrônicos</p>
+                    <span class="service-price">Consulte</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section - Carrossel -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title">Acessórios</h2>
+            <p class="section-subtitle">Qualidade e variedade para proteger e personalizar seu smartphone</p>
+        </div>
+        
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Capinhas Premium</h3>
+                    <p>Proteção total com estilo. Diversos modelos e cores</p>
+                    <span class="product-price">A partir de R$ 29,90</span>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3>Películas de Vidro</h3>
+                    <p>Proteção 9H contra riscos e quedas</p>
+                    <span class="product-price">A partir de R$ 19,90</span>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-charging-station"></i>
+                    </div>
+                    <h3>Carregadores Turbo</h3>
+                    <p>Carregamento rápido e seguro para seu dispositivo</p>
+                    <span class="product-price">A partir de R$ 49,90</span>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <h3>Fones Bluetooth</h3>
+                    <p>Som de qualidade sem fios. Diversos modelos</p>
+                    <span class="product-price">A partir de R$ 89,90</span>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h3>Cabos USB</h3>
+                    <p>Cabos reforçados de alta durabilidade</p>
+                    <span class="product-price">A partir de R$ 24,90</span>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Suporte Veicular</h3>
+                    <p>Suportes práticos para usar o celular no carro</p>
+                    <span class="product-price">A partir de R$ 34,90</span>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <h3>Power Bank</h3>
+                    <p>Carregadores portáteis de alta capacidade</p>
+                    <span class="product-price">A partir de R$ 59,90</span>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                    <h3>Caixas de Som</h3>
+                    <p>Caixas Bluetooth compactas e potentes</p>
+                    <span class="product-price">A partir de R$ 79,90</span>
+                </div>
+            </div>
+            
+            <!-- Dots indicadores -->
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Sobre a Gorillaz Tech</h2>
+                    <p>
+                        Com mais de 5 anos de experiência no mercado, a <strong>GorillazTech</strong> se tornou 
+                        referência em manutenção de smartphones na região. Nossa equipe é formada por técnicos 
+                        certificados e apaixonados por tecnologia.
+                    </p>
+                    <p>
+                        Acreditamos que um bom atendimento vai além do conserto. Por isso, oferecemos 
+                        transparência total no diagnóstico, orçamento sem compromisso e garantia em todos 
+                        os nossos serviços.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat"> 
+                            <span class="stat-number">10.000+</span>
+                            <span class="stat-label">Aparelhos Consertados</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Clientes Satisfeitos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">6 Horas</span>
+                            <span class="stat-label">Tempo Médio de Reparo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="map-container">
+                        <h3 class="map-title"><i class="fas fa-map-marked-alt"></i> Nossas Lojas</h3>
+                        <div id="storeMap"></div>
+                        <div class="map-legend">
+                            <a href="https://www.google.com/maps/search/Rua+Soares+Meireles,+176+-+Pilares,+Rio+de+Janeiro" target="_blank" class="legend-item">
+                                <span class="pin pin-1"><span>1</span></span>
+                                <span class="legend-text">Loja 1 - Rua Soares Meireles, 176 - Pilares</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="https://www.google.com/maps/search/Rua+Carlos+Gon%C3%A7alves+Penna,+192+-+Engenho+da+Rainha,+Rio+de+Janeiro" target="_blank" class="legend-item">
+                                <span class="pin pin-2"><span>2</span></span>
+                                <span class="legend-text">Loja 2 - Rua Carlos Gonçalves Penna, 192 - Engenho da Rainha</span>
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <p class="section-subtitle">Estamos prontos para atender você!</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Endereços</h4>
+                            <p>Rua Soares Meireles, 176 - Pilares, RJ<br>
+                            Rua Carlos Gonçalves Penna, 192 - Engenho da Rainha, RJ</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p><strong>Loja 1:</strong> (21) 96687-4514<br>
+                            <strong>Loja 2:</strong> (21) 99010-6402</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Horário</h4>
+                            <p>Seg-Sex: 9h às 18h<br>Sábado: 9h às 14h</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-mail</h4>
+                            <p>contato@gorillaztech.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Seu Nome" required>
+                    <input type="tel" placeholder="Seu Telefone" required>
+                    <input type="email" placeholder="Seu E-mail" required>
+                    <select required>
+                        <option value="">Tipo de Serviço</option>
+                        <option value="screen">Troca de Tela</option>
+                        <option value="battery">Troca de Bateria</option>
+                        <option value="camera">Reparo de Câmera</option>
+                        <option value="other">Outro</option>
+                    </select>
+                    <textarea placeholder="Descreva o problema do seu aparelho" rows="4" required></textarea>
+                    <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content-compact">
+                <!-- Redes Sociais -->
+                <div class="footer-social">
+                    <h4>Siga-nos</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/gorillaz_tech/" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/gorillaztech176" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://wa.me/5521966874514" target="_blank" aria-label="WhatsApp Loja 1" class="whatsapp-primary">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Loja 1</span>
+                        </a>
+                        <a href="https://wa.me/5521990106402" target="_blank" aria-label="WhatsApp Loja 2">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Loja 2</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Formas de Pagamento -->
+                <div class="footer-payment">
+                    <h4>Formas de Pagamento</h4>
+                    <div class="payment-icons">
+                        <i class="fab fa-pix" title="Pix"></i>
+                        <i class="fas fa-credit-card" title="Cartão de Crédito"></i>
+                        <i class="fas fa-money-bill" title="Dinheiro"></i>
+                        <i class="fab fa-cc-visa" title="Visa"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Gorillaz Tech - Todos os direitos reservados</p>
+                <p class="developer-credit">Desenvolvido por <a href="https://kryvex.dev" target="_blank">kryvex.dev</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <button class="whatsapp-button" id="whatsappBtn" aria-label="Abrir WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </button>
+
+    <!-- WhatsApp Chat Modal -->
+    <div class="whatsapp-chat" id="whatsappChat">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <img src="assets/images/logo/logotipo.png" alt="GorillazTech" class="chat-logo">
+                <div>
+                    <h4>GorillazTech</h4>
+                    <span class="chat-status"><i class="fas fa-circle"></i> Online</span>
+                </div>
+            </div>
+            <button class="chat-close" id="chatClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="chat-body" id="chatBody">
+            <!-- Step 1: Boas-vindas e Serviços -->
+            <div class="chat-step" id="step1">
+                <div class="chat-message bot">
+                    <p>Olá! 🦍 Bem-vindo à <strong>GorillazTech</strong>!</p>
+                    <p>Como podemos ajudar você hoje?</p>
+                </div>
+                
+                <div class="service-options">
+                    <button class="service-option" data-service="conserto">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Conserto de Celular</span>
+                    </button>
+                    <button class="service-option" data-service="computador">
+                        <i class="fas fa-laptop"></i>
+                        <span>Manutenção de Computadores</span>
+                    </button>
+                    <button class="service-option" data-service="acessorios">
+                        <i class="fas fa-headphones"></i>
+                        <span>Acessórios para Celular</span>
+                    </button>
+                    <button class="service-option" data-service="outro">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Outro Assunto</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Escolher Loja -->
+            <div class="chat-step" id="step2" style="display: none;">
+                <div class="chat-message user">
+                    <p id="selectedServiceText"></p>
+                </div>
+                
+                <div class="chat-message bot">
+                    <p>Ótimo! 👍</p>
+                    <p>Escolha a loja mais próxima de você:</p>
+                </div>
+                
+                <div class="store-options">
+                    <button class="store-option" data-phone="5521966874514" data-store="Loja 1 - Pilares">
+                        <div class="store-icon">
+                            <i class="fas fa-store"></i>
+                            <span class="store-number">1</span>
+                        </div>
+                        <div class="store-info">
+                            <strong>Pilares</strong>
+                            <span>Rua Soares Meireles, 176</span>
+                            <span class="store-phone"><i class="fab fa-whatsapp"></i> (21) 96687-4514</span>
+                        </div>
+                    </button>
+                    <button class="store-option" data-phone="5521990106402" data-store="Loja 2 - Engenho da Rainha">
+                        <div class="store-icon">
+                            <i class="fas fa-store"></i>
+                            <span class="store-number">2</span>
+                        </div>
+                        <div class="store-info">
+                            <strong>Engenho da Rainha</strong>
+                            <span>Rua Carlos Gonçalves Penna, 192</span>
+                            <span class="store-phone"><i class="fab fa-whatsapp"></i> (21) 99010-6402</span>
+                        </div>
+                    </button>
+                </div>
+                
+                <button class="back-btn" id="backToStep1">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </button>
+            </div>
+
+            <!-- Step 3: Confirmação -->
+            <div class="chat-step" id="step3" style="display: none;">
+                <div class="chat-message user">
+                    <p id="selectedStoreText"></p>
+                </div>
+                
+                <div class="chat-message bot">
+                    <p>Perfeito! 🚀</p>
+                    <p>Clique no botão abaixo para iniciar a conversa no WhatsApp:</p>
+                </div>
+                
+                <div class="confirm-container">
+                    <div class="summary-box">
+                        <p><i class="fas fa-concierge-bell"></i> <span id="summaryService"></span></p>
+                        <p><i class="fas fa-store"></i> <span id="summaryStore"></span></p>
+                    </div>
+                    
+                    <button class="whatsapp-send-btn" id="confirmSend">
+                        <i class="fab fa-whatsapp"></i>
+                        Iniciar Conversa
+                    </button>
+                </div>
+                
+                <button class="back-btn" id="backToStep2">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS para mapa personalizado -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
