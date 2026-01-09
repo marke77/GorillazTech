@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+/* Reset e Base */
 * {
     margin: 0;
     padding: 0;
@@ -6,27 +6,32 @@
 }
 
 :root {
-    --primary-color: #ffc107; /* Amarelo/Dourado da coroa e TECH */
-    --secondary-color: #212121; /* Preto/Cinza escuro do gorila */
-    --accent-color: #ff6b35; /* Laranja do focinho */
-    --dark-bg: #000000; /* Preto puro */
+    --primary-color: #ffc107;
+    --secondary-color: #212121;
+    --accent-color: #ff6b35;
+    --dark-bg: #000000;
     --light-bg: #f5f5f5;
     --text-dark: #212121;
     --text-light: #ffffff;
     --gray-light: #e0e0e0;
     --gray-medium: #757575;
-    --gray-dark: #424242; /* Cinza dos fones */
-    --red-accent: #f44336; /* Vermelho da língua */
+    --gray-dark: #424242;
+    --red-accent: #f44336;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     --shadow-hover: 0 5px 20px rgba(0, 0, 0, 0.5);
     --transition: all 0.3s ease;
+}
+
+html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
-    overflow-x: hidden;
 }
 
 .container {
@@ -35,7 +40,7 @@ body {
     padding: 0 20px;
 }
 
-/* Typography */
+/* Tipografia */
 h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     line-height: 1.2;
@@ -66,14 +71,38 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1rem;
 }
 
-/* Header & Navigation */
+/* Header */
 .header {
-    background: var(--dark-bg);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    transition: var(--transition);
+    transition: all 0.3s ease;
+}
+
+.navbar {
+    position: relative;
+    padding: 0.8rem 0;
+    background: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 193, 7, 0.3) 20%,
+        rgba(255, 193, 7, 0.5) 50%,
+        rgba(255, 193, 7, 0.3) 80%,
+        transparent 100%);
 }
 
 .navbar {
@@ -84,6 +113,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo {
@@ -145,16 +175,705 @@ h1, h2, h3, h4, h5, h6 {
 
 .hamburger {
     display: none;
+    cursor: default;
+    padding: 8px;
+    transition: var(--transition);
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    outline: none;
+}
+
+.hamburger:focus {
+    outline: none;
+}
+
+.hamburger:hover {
+    transform: scale(1.08);
+}
+
+/* Menu Gorila */
+.gorilla-menu {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    overflow: visible;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.gorilla-icon {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    pointer-events: none;
+}
+
+/* Crânio */
+.g-skull {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Cabeça */
+.g-head {
+    position: relative;
+    width: 52px;
+    height: 50px;
+    pointer-events: auto;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.g-face {
+    position: absolute;
+    width: 48px;
+    height: 46px;
+    background: radial-gradient(ellipse at 50% 30%, #3d3d3d 0%, #2a2a2a 40%, #1a1a1a 100%);
+    border-radius: 50% 50% 45% 45%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 
+        inset 0 8px 15px rgba(70,70,70,0.3),
+        inset 0 -8px 15px rgba(0,0,0,0.5),
+        0 4px 10px rgba(0,0,0,0.6);
+}
+
+.g-face::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    background: 
+        repeating-linear-gradient(165deg, transparent 0px, transparent 2px, rgba(50,50,50,0.2) 2px, rgba(50,50,50,0.2) 3px),
+        repeating-linear-gradient(195deg, transparent 0px, transparent 2px, rgba(60,60,60,0.15) 2px, rgba(60,60,60,0.15) 3px);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.g-crest {
+    position: absolute;
+    width: 28px;
+    height: 12px;
+    background: linear-gradient(180deg, #4a4a4a 0%, #353535 50%, #2a2a2a 100%);
+    border-radius: 50% 50% 40% 40%;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    box-shadow: 
+        inset 0 3px 6px rgba(80,80,80,0.4),
+        0 2px 5px rgba(0,0,0,0.4);
+}
+
+.g-ear {
+    position: absolute;
+    width: 10px;
+    height: 12px;
+    background: linear-gradient(180deg, #353535 0%, #252525 100%);
+    border-radius: 50%;
+    top: 14px;
+    box-shadow: 
+        inset 2px 2px 4px rgba(0,0,0,0.5),
+        0 2px 3px rgba(0,0,0,0.3);
+}
+
+.g-ear::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 6px;
+    background: radial-gradient(ellipse, #1a1a1a 0%, #0f0f0f 100%);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.g-ear-l { left: -3px; }
+.g-ear-r { right: -3px; }
+
+.g-brow {
+    position: absolute;
+    width: 38px;
+    height: 12px;
+    background: linear-gradient(180deg, #252525 0%, #1a1a1a 70%, #121212 100%);
+    border-radius: 50% 50% 45% 45%;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 
+        inset 0 3px 5px rgba(60,60,60,0.25),
+        0 3px 6px rgba(0,0,0,0.5);
+}
+
+.g-brow::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.3), transparent);
+}
+
+.g-eye-socket {
+    position: absolute;
+    width: 14px;
+    height: 11px;
+    background: radial-gradient(ellipse, #050505 0%, #121212 100%);
+    border-radius: 50%;
+    top: 15px;
+    z-index: 2;
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.95);
+}
+
+.g-eye-socket-l { left: 7px; }
+.g-eye-socket-r { right: 7px; }
+
+.g-eye {
+    position: absolute;
+    width: 8px;
+    height: 7px;
+    background: radial-gradient(circle at 35% 35%, #ffeb3b 0%, var(--primary-color) 35%, #b8860b 70%, #8b6914 100%);
+    border-radius: 50%;
+    top: 17px;
+    z-index: 3;
+    box-shadow: 
+        0 0 8px rgba(255, 193, 7, 0.8),
+        0 0 15px rgba(255, 193, 7, 0.4),
+        inset 0 -2px 3px rgba(0,0,0,0.5);
+    animation: gorillaBlink 4s infinite;
+}
+
+.g-eye::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #000;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.g-eye::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 50%;
+    top: 1px;
+    left: 2px;
+}
+
+.g-eye-l { left: 10px; }
+.g-eye-r { right: 10px; }
+
+/* Focinho */
+.g-snout {
+    position: absolute;
+    width: 32px;
+    height: 20px;
+    background: linear-gradient(180deg, 
+        #1f1f1f 0%, 
+        #151515 40%, 
+        #0d0d0d 100%);
+    border-radius: 30% 30% 45% 45%;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    box-shadow: 
+        inset 0 5px 10px rgba(60,60,60,0.3),
+        inset 0 -4px 8px rgba(0,0,0,0.7),
+        0 4px 8px rgba(0,0,0,0.6);
+}
+
+.g-snout::before {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 10px;
+    background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+    border-radius: 40% 40% 35% 35%;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.g-snout::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 10px;
+    background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 1px;
+}
+
+.g-nostrils {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 4px;
+    z-index: 4;
+}
+
+.g-nostril {
+    width: 10px;
+    height: 7px;
+    background: radial-gradient(ellipse at 50% 60%, #0a0a0a 0%, #000000 100%);
+    border-radius: 45% 45% 50% 50% / 40% 40% 60% 60%;
+    box-shadow: 
+        inset 0 2px 4px rgba(30,30,30,0.6),
+        inset 0 -1px 2px rgba(0,0,0,0.8),
+        0 1px 3px rgba(0,0,0,0.7);
+    position: relative;
+}
+
+.g-nostril:first-child {
+    transform: rotate(-8deg);
+}
+
+.g-nostril:last-child {
+    transform: rotate(8deg);
+}
+
+/* Garganta (Menu) */
+.g-throat {
+    position: absolute;
+    top: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 10;
+    border-radius: 8px;
+}
+
+.gorilla-icon::after {
+    content: '';
+    position: absolute;
+    top: 44px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 3px;
+    background: #0a0a0a;
+    border-radius: 0 0 8px 8px;
+    transition: opacity 0.2s ease;
+    z-index: 5;
+}
+
+/* Dentes Superiores */
+.g-upper-teeth {
+    display: flex;
+    justify-content: center;
+    gap: 1.5px;
+    margin-top: -4px;
+    padding-top: 2px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease 0.1s;
+    position: relative;
+    z-index: 5;
+}
+
+.g-upper-teeth span {
+    width: 6px;
+    height: 12px;
+    background: linear-gradient(180deg, 
+        #fffef8 0%, 
+        #f8f7f2 20%,
+        #f0efe8 50%,
+        #e5e4dc 80%,
+        #d5d4cc 100%);
+    border-radius: 3px 3px 50% 50% / 3px 3px 70% 70%;
+    box-shadow: 
+        /* Sombra projetada */
+        0 4px 8px rgba(0,0,0,0.6),
+        0 2px 4px rgba(0,0,0,0.4),
+        /* Brilho interno no topo */
+        inset 0 3px 4px rgba(255,255,255,0.9),
+        inset 0 -4px 6px rgba(150,140,130,0.4);
+    transform-origin: top center;
+    border: 1px solid rgba(200,195,185,0.3);
+}
+
+.g-upper-teeth span:nth-child(1),
+.g-upper-teeth span:nth-child(6) {
+    width: 7px;
+    height: 16px;
+    border-radius: 3px 3px 60% 60% / 3px 3px 80% 80%;
+}
+
+.g-upper-teeth span:nth-child(2),
+.g-upper-teeth span:nth-child(5) {
+    height: 13px;
+    border-radius: 3px 3px 55% 55% / 3px 3px 75% 75%;
+}
+
+.g-upper-teeth span:nth-child(3),
+.g-upper-teeth span:nth-child(4) {
+    width: 5px;
+    height: 10px;
+    border-radius: 2px 2px 45% 45% / 2px 2px 65% 65%;
+}
+
+.g-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+    width: 100%;
+    height: 100%;
+    padding: 10px 15px 20px;
+}
+
+/* Mandíbula */
+.g-jaw {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 30;
+}
+
+/* Dentes Inferiores */
+.g-lower-teeth {
+    display: flex;
+    justify-content: center;
+    gap: 1.5px;
+    margin-bottom: -3px;
+    padding-bottom: 2px;
+    position: relative;
+    z-index: 5;
+}
+
+.g-lower-teeth span {
+    width: 6px;
+    height: 10px;
+    background: linear-gradient(0deg, 
+        #fffef8 0%, 
+        #f8f7f2 20%,
+        #f0efe8 50%,
+        #e5e4dc 80%,
+        #d5d4cc 100%);
+    border-radius: 50% 50% 3px 3px / 70% 70% 3px 3px;
+    box-shadow: 
+        /* Sombra projetada para cima */
+        0 -4px 8px rgba(0,0,0,0.6),
+        0 -2px 4px rgba(0,0,0,0.4),
+        /* Brilho interno na base */
+        inset 0 -3px 4px rgba(255,255,255,0.9),
+        inset 0 4px 6px rgba(150,140,130,0.4);
+    transform-origin: bottom center;
+    border: 1px solid rgba(200,195,185,0.3);
+}
+
+.g-lower-teeth span:nth-child(1),
+.g-lower-teeth span:nth-child(6) {
+    width: 7px;
+    height: 14px;
+    border-radius: 60% 60% 3px 3px / 80% 80% 3px 3px;
+}
+
+.g-lower-teeth span:nth-child(2),
+.g-lower-teeth span:nth-child(5) {
+    height: 11px;
+    border-radius: 55% 55% 3px 3px / 75% 75% 3px 3px;
+}
+
+.g-lower-teeth span:nth-child(3),
+.g-lower-teeth span:nth-child(4) {
+    width: 5px;
+    height: 8px;
+    border-radius: 45% 45% 2px 2px / 65% 65% 2px 2px;
+}
+
+/* Queixo */
+.g-chin {
+    width: 54px;
+    height: 28px;
+    background: 
+        radial-gradient(ellipse at 50% 70%, #3d3d3d 0%, #2a2a2a 50%, #1a1a1a 100%);
+    border-radius: 35% 35% 50% 50%;
+    box-shadow: 
+        inset 0 10px 15px rgba(80,80,80,0.35),
+        inset 0 -8px 15px rgba(0,0,0,0.8),
+        0 10px 25px rgba(0,0,0,0.7);
+    position: relative;
+}
+
+.g-chin::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: 
+        repeating-linear-gradient(175deg, transparent 0px, transparent 2px, rgba(50,50,50,0.2) 2px, rgba(50,50,50,0.2) 3px),
+        repeating-linear-gradient(185deg, transparent 0px, transparent 2px, rgba(60,60,60,0.15) 2px, rgba(60,60,60,0.15) 3px);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.g-chin::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40%;
+    background: linear-gradient(180deg, rgba(0,0,0,0.3), transparent);
+    border-radius: 1px;
+}
+
+@keyframes gorillaBlink {
+    0%, 92%, 100% { transform: scaleY(1); }
+    96% { transform: scaleY(0.1); }
+}
+
+.hamburger:hover .g-eye {
+    background: #fff;
+    box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+}
+
+.g-menu-item {
+    color: #ffc107;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 8px 18px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    transform: scale(0.9) translateY(5px);
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 193, 7, 0.4);
+    min-width: 100px;
+    text-align: center;
+    pointer-events: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.g-menu-item:hover {
+    color: #fff;
+    background: rgba(255, 193, 7, 0.5);
+    transform: scale(1.05) translateY(0);
+    text-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
+    border-color: rgba(255, 193, 7, 0.7);
+}
+
+/* Estado Ativo */
+.hamburger.active .gorilla-icon::after {
+    opacity: 0;
+}
+
+.hamburger.active .g-throat {
+    width: 140px;
+    height: 250px;
+    opacity: 1;
+    top: 52px;
+    background: 
+        /* Gradiente radial central - mais claro no centro, escurece nas bordas */
+        radial-gradient(ellipse at 50% 50%, 
+            #6b2035 0%, 
+            #5a1a2d 40%, 
+            #4a1525 70%, 
+            #3a1020 100%),
+        linear-gradient(180deg, 
+            #3a1020 0%,
+            #4a1525 10%,
+            #5a1a2d 20%, 
+            #6b2035 40%,
+            #703545 50%,
+            #6b2035 60%, 
+            #5a1a2d 80%,
+            #4a1525 90%,
+            #3a1020 100%);
+    border-radius: 8px 8px 45% 45%;
+    box-shadow: 
+        inset 0 35px 45px -10px rgba(0,0,0,0.98),
+        inset 0 20px 25px -5px rgba(0,0,0,0.9),
+        inset 0 -35px 45px -10px rgba(0,0,0,0.95),
+        inset 0 -20px 25px -5px rgba(0,0,0,0.85),
+        inset 25px 0 30px -10px rgba(0,0,0,0.8),
+        inset -25px 0 30px -10px rgba(0,0,0,0.8),
+        inset 0 0 60px rgba(0,0,0,0.7),
+        0 20px 60px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(30, 5, 5, 0.8);
+    position: relative;
+    overflow: visible;
+}
+
+.hamburger.active .g-throat::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 6px;
+    background: linear-gradient(180deg,
+        #7a3548 0%,
+        #8c4055 50%,
+        #7a3548 100%);
+    border-radius: 40% 40% 50% 50% / 40% 40% 100% 100%;
+    box-shadow:
+        inset 0 2px 3px rgba(0,0,0,0.3);
+    z-index: -1;
+}
+
+.hamburger.active .g-skull {
+    transform: translateX(-50%) translateY(-5px) scale(1.15);
+}
+
+.hamburger.active .g-upper-teeth {
+    opacity: 1;
+    max-height: 20px;
+    overflow: visible;
+}
+
+.hamburger.active .g-jaw {
+    opacity: 1;
+    bottom: -250px;
+}
+
+.hamburger.active .g-menu-item {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
     cursor: pointer;
 }
 
-.hamburger span {
-    width: 25px;
+.hamburger.active .g-menu-item:nth-child(1) { transition-delay: 0.1s; }
+.hamburger.active .g-menu-item:nth-child(2) { transition-delay: 0.15s; }
+.hamburger.active .g-menu-item:nth-child(3) { transition-delay: 0.2s; }
+.hamburger.active .g-menu-item:nth-child(4) { transition-delay: 0.25s; }
+.hamburger.active .g-menu-item:nth-child(5) { transition-delay: 0.3s; }
+
+.hamburger.active .g-eye {
+    animation: none;
     height: 3px;
-    background: var(--text-light);
-    margin: 3px 0;
-    transition: var(--transition);
+    background: #fff;
+    box-shadow: 0 0 8px var(--primary-color);
+}
+
+.hamburger.active .g-skull::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 10px;
+    background: linear-gradient(180deg, 
+        rgba(10,10,10,0.9) 0%, 
+        rgba(10,10,10,0.5) 50%,
+        transparent 100%);
+    border-radius: 0 0 50% 50%;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.hamburger.active .g-jaw::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 8px;
+    background: linear-gradient(0deg, 
+        rgba(30,30,30,0.9) 0%, 
+        rgba(30,30,30,0.5) 50%,
+        transparent 100%);
+    border-radius: 50% 50% 0 0;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.hamburger.active .g-upper-teeth span {
+    animation: teethReveal 0.4s ease-out forwards;
+}
+
+.hamburger.active .g-upper-teeth span:nth-child(1) { animation-delay: 0.05s; }
+.hamburger.active .g-upper-teeth span:nth-child(2) { animation-delay: 0.08s; }
+.hamburger.active .g-upper-teeth span:nth-child(3) { animation-delay: 0.1s; }
+.hamburger.active .g-upper-teeth span:nth-child(4) { animation-delay: 0.1s; }
+.hamburger.active .g-upper-teeth span:nth-child(5) { animation-delay: 0.08s; }
+.hamburger.active .g-upper-teeth span:nth-child(6) { animation-delay: 0.05s; }
+
+@keyframes teethReveal {
+    0% { 
+        transform: scaleY(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scaleY(1.1);
+    }
+    100% { 
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
+.hamburger.active .g-lower-teeth span {
+    animation: teethRevealBottom 0.4s ease-out forwards;
+}
+
+.hamburger.active .g-lower-teeth span:nth-child(1) { animation-delay: 0.15s; }
+.hamburger.active .g-lower-teeth span:nth-child(2) { animation-delay: 0.18s; }
+.hamburger.active .g-lower-teeth span:nth-child(3) { animation-delay: 0.2s; }
+.hamburger.active .g-lower-teeth span:nth-child(4) { animation-delay: 0.2s; }
+.hamburger.active .g-lower-teeth span:nth-child(5) { animation-delay: 0.18s; }
+.hamburger.active .g-lower-teeth span:nth-child(6) { animation-delay: 0.15s; }
+
+@keyframes teethRevealBottom {
+    0% { 
+        transform: scaleY(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scaleY(1.1);
+    }
+    100% { 
+        transform: scaleY(1);
+        opacity: 1;
+    }
 }
 
 /* Buttons (Global) */
@@ -610,23 +1329,6 @@ h1, h2, h3, h4, h5, h6 {
 .stat-label {
     color: var(--gray-medium);
     font-size: 0.75rem;
-}
-
-.image-placeholder {
-    width: 100%;
-    height: 400px;
-    background: var(--gray-light);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.image-placeholder i {
-    font-size: 4rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
 }
 
 /* Map Container */
@@ -1581,30 +2283,6 @@ a.legend-item:hover i.fa-external-link-alt {
     }
 }
 
-/* Cores de destaque adicionais inspiradas na logo */
-.gorilla-accent {
-    color: var(--primary-color) !important;
-}
-
-.crown-gold {
-    color: var(--primary-color);
-    text-shadow: 0 2px 4px rgba(255, 193, 7, 0.3);
-}
-
-.tech-orange {
-    color: var(--accent-color);
-}
-
-/* Animação especial para elementos com tema gorilla */
-@keyframes gorilla-roar {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-}
-
-.gorilla-hover:hover {
-    animation: gorilla-roar 0.6s ease-in-out;
-}
-
 /* Responsive Design */
 @media (max-width: 992px) {
     .about-content {
@@ -1617,37 +2295,20 @@ a.legend-item:hover i.fa-external-link-alt {
 }
 
 @media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background: var(--dark-bg);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        padding: 2rem 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    .nav-container {
+        justify-content: center;
     }
     
-    .nav-menu.active {
-        left: 0;
+    .logo {
+        display: none;
+    }
+    
+    .nav-menu {
+        display: none !important;
     }
     
     .hamburger {
-        display: flex;
-    }
-    
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-    
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
+        display: block;
     }
     
     .section-title {
@@ -1707,7 +2368,6 @@ a.legend-item:hover i.fa-external-link-alt {
         font-size: 0.9rem;
     }
     
-    /* Logo navbar menor em telas pequenas */
     .logo-img {
         height: 30px;
     }
