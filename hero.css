@@ -1,11 +1,8 @@
-/* ==========================================
-   HERO SECTION - MOBILE FIRST DESIGN
-   Ultra-Modern with Particles & Animations
-   ========================================== */
-
+/* Hero Section */
 .hero {
     min-height: 100vh;
     min-height: 100dvh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,10 +13,6 @@
     padding: 80px 0 40px;
 }
 
-/* ==========================================
-   ANIMATED BACKGROUND
-   ========================================== */
-
 .hero-bg {
     position: absolute;
     inset: 0;
@@ -27,7 +20,6 @@
     overflow: hidden;
 }
 
-/* Gradient Orbs */
 .gradient-orbs {
     position: absolute;
     inset: 0;
@@ -78,7 +70,6 @@
     75% { transform: translate(-20px, -15px) scale(1.02); }
 }
 
-/* Grid Lines */
 .grid-lines {
     position: absolute;
     inset: 0;
@@ -94,7 +85,6 @@
     100% { transform: translate(40px, 40px); }
 }
 
-/* Particles */
 .particles {
     position: absolute;
     inset: 0;
@@ -109,10 +99,6 @@
     pointer-events: none;
 }
 
-/* ==========================================
-   HERO CONTAINER
-   ========================================== */
-
 .hero-container {
     position: relative;
     z-index: 1;
@@ -125,10 +111,6 @@
     max-width: 100%;
     padding: 0 1.25rem;
 }
-
-/* ==========================================
-   LOGO
-   ========================================== */
 
 .hero-logo-wrapper {
     position: relative;
@@ -165,10 +147,6 @@
     50% { transform: translateY(-10px); }
 }
 
-/* ==========================================
-   HERO CONTENT
-   ========================================== */
-
 .hero-content {
     display: flex;
     flex-direction: column;
@@ -176,7 +154,6 @@
     gap: 1.2rem;
 }
 
-/* Badge */
 .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -208,7 +185,6 @@
     50% { opacity: 0.4; }
 }
 
-/* Title */
 .hero-title {
     display: flex;
     flex-direction: column;
@@ -253,7 +229,6 @@
     to { transform: scaleX(1); }
 }
 
-/* Description */
 .hero-description {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.9rem;
@@ -265,10 +240,6 @@
 .hero-description strong {
     color: #ffc107;
 }
-
-/* ==========================================
-   BUTTONS WITH MICRO-INTERACTIONS
-   ========================================== */
 
 .hero-buttons {
     display: flex;
@@ -296,7 +267,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Primary Button */
 .btn-primary-hero {
     background: linear-gradient(135deg, #ffc107 0%, #ffdb4d 100%);
     color: #212121;
@@ -331,7 +301,6 @@
     font-size: 0.65rem;
 }
 
-/* Shine Effect */
 .btn-shine {
     position: absolute;
     top: 0;
@@ -346,7 +315,6 @@
     left: 100%;
 }
 
-/* Secondary Button */
 .btn-secondary-hero {
     background: transparent;
     color: #fff;
@@ -373,10 +341,6 @@
 .btn-secondary-hero:hover .btn-icon-left {
     transform: scale(1.15);
 }
-
-/* ==========================================
-   TRUST BADGES
-   ========================================== */
 
 .hero-trust {
     display: flex;
@@ -406,13 +370,9 @@
     color: #ffc107;
 }
 
-/* ==========================================
-   SCROLL INDICATOR
-   ========================================== */
-
 .scroll-indicator {
     position: absolute;
-    bottom: 20px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -423,7 +383,15 @@
     font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    animation: fadeInUp 1s ease-out 1.5s both;
+    opacity: 0;
+    animation: scrollFadeIn 1s ease-out 1.5s forwards;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.scroll-indicator span {
+    text-align: center;
+    white-space: nowrap;
 }
 
 .mouse {
@@ -449,20 +417,14 @@
     100% { transform: translateY(8px); opacity: 0; }
 }
 
-@keyframes fadeInUp {
-    from {
+@keyframes scrollFadeIn {
+    0% {
         opacity: 0;
-        transform: translateX(-50%) translateY(20px);
     }
-    to {
+    100% {
         opacity: 1;
-        transform: translateX(-50%) translateY(0);
     }
 }
-
-/* ==========================================
-   RESPONSIVE - TABLET (480px+)
-   ========================================== */
 
 @media (min-width: 480px) {
     .hero-logo {
@@ -507,10 +469,6 @@
         height: 250px;
     }
 }
-
-/* ==========================================
-   RESPONSIVE - TABLET LANDSCAPE (768px+)
-   ========================================== */
 
 @media (min-width: 768px) {
     .hero {
@@ -577,10 +535,6 @@
     }
 }
 
-/* ==========================================
-   RESPONSIVE - DESKTOP (1024px+)
-   ========================================== */
-
 @media (min-width: 1024px) {
     .hero-container {
         flex-direction: row;
@@ -632,13 +586,9 @@
     }
     
     .scroll-indicator {
-        bottom: 30px;
+        bottom: 35px;
     }
 }
-
-/* ==========================================
-   RESPONSIVE - LARGE DESKTOP (1200px+)
-   ========================================== */
 
 @media (min-width: 1200px) {
     .hero-logo {
