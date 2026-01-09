@@ -25,19 +25,8 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Scroll Suave
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+// Scroll Suave - Usando CSS scroll-behavior e scroll-padding-top
+// Os links âncora funcionam nativamente com o offset definido no CSS
 
 // Header no Scroll
 const header = document.querySelector('.header');
